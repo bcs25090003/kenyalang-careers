@@ -1,0 +1,22 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: kenyalang_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kenyalang_careers
+      MYSQL_USER: kenyalang
+      MYSQL_PASSWORD: kenyalang
+    ports:
+      # Host 3306 is often already used by local MySQL.
+      # Use 3307 on host to avoid port conflicts.
+      - "3307:3306"
+    volumes:
+      - kenyalang_mysql_data:/var/lib/mysql
+      # Runs *.sql in name order once on first start (empty volume). Scripts are idempotent; safe to re-run manually.
+      - ./backend/sql:/docker-entrypoint-initdb.d
+
+volumes:
+  kenyalang_mysql_data:
+

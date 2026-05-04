@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- OAuth 2.0 Web client ID from Google Cloud (same as backend GOOGLE_OAUTH_WEB_CLIENT_ID). Required for Google Sign-In on Android. -->
+    <string name="default_web_client_id">77589502545-jr7a3gfsmrh41oq9igcap9du2uf4n0af.apps.googleusercontent.com</string>
+</resources>
